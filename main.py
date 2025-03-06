@@ -3,7 +3,7 @@
 @Project ：Pyqt
 @File    ：main.py
 @IDE     ：PyCharm 
-@Author  ：fh
+@Author  ：xiaomu-258
 @Date    ：2025/1/27 16:52 
 """
 
