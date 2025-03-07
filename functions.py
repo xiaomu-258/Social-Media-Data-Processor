@@ -548,11 +548,11 @@ def reconstruct_structure(self):
 
         try:
             dot.render(output_pdf_path, format="pdf", cleanup=True)
-            self.log_text.append(f"局部树状图已生成: {output_pdf_path}")
+            self.log_text.append(f"局部树状图已生成: {output_pdf_path}.pdf")
         except Exception as e:
             self.log_text.append(f"生成树状图时发生错误: {str(e)}")
 
-    def limit_first_level_nodes(tree, max_children=10):
+    def limit_first_level_nodes(tree, max_children=5):
         """限制根节点的直接子节点数量"""
         for root in tree:
             if 'children' in root and len(root['children']) > max_children:
@@ -563,5 +563,5 @@ def reconstruct_structure(self):
         """随机选取 sample_size 个帖子"""
         return random.sample(data, min(sample_size, len(data)))
 
-    tree = limit_first_level_nodes(tree, max_children=20)  # 限制第一层节点数
+    tree = limit_first_level_nodes(tree, max_children=10)  # 限制第一层节点数
     visualize_tree(tree)
